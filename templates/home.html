@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+
+<h2>AI 선플 탐지기</h2>
+<form action="confirm" method="post">
+    {% csrf_token %} 댓글을 입력해주세요:<br>
+    <input class="input" type="text" name="num1" placeholder="여러분의 선플을 달아주세요!">
+    <input type="submit" class="button" value="등록">
+</form>
+
+<h4>{{result}}</h4>
+<h5>아름다운 댓글 수: {{num}}</h5>
+<h3>아름다운 댓글들</h3>
+<ul>
+    {% for text in posts %}
+    <li>
+        <div class="title">
+            <p>{{ text }}</p>
+        </div>
+    </li>
+    {% endfor %}
+
+</ul>
+<h4 class="text-gray" style="font-size: 10px;">
+    Copyright &2020 All rights reserved | made by yoonhero <br> Contact yoonhero0416@gmail.com
+</h4>
+{% endblock %}
