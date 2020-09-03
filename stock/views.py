@@ -4,17 +4,22 @@ import requests
 import pyglet
 from playsound import playsound
 from .models import ToDoList, Item, Comment
-
+def icon(request):
+    return render(request, 'favicon.png')
+def robot(request):
+    return render(request, 'robots.txt')
+def sitemap(request):
+    return render(request, 'sitemap.xml')
 # Create your views here.
 def home(request):
-    h = Comment.objects.all()
     num = Comment.objects.all().count()
+    h = Comment.objects.all().order_by('-id')[:num]
     return render(request, 'home.html', {'num':num, 'posts':h})
-
 def confirm(request):
     if request.POST['num1'] == "":
-        h = Comment.objects.all()
+    
         num = Comment.objects.all().count()
+        h = Comment.objects.all().order_by('-id')[:num]
         return render(request, 'home.html', {'num':num, 'posts': h})
 
     val1 = request.POST['num1']

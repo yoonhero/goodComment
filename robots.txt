@@ -1,0 +1,4 @@
+User-agent: *Allow: /
+Mozilla/5.0 (compatible; Yeti/1.1; +http://naver.me/spd)
+
+Sitemap: https://92c479120ec7.ngrok.io/sitemap.xml

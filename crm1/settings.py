@@ -11,21 +11,23 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+TEMPATE_DIR = os.path.join(BASE_DIR, '/Users/yoonseonghyeon/Desktop/programming/python/crm1/templates')
+OTHER_DIR = os.path.join(BASE_DIR, '/Users/yoonseonghyeon/Desktop/programming/python/crm1')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '9$hw9t35j672ke%b*)=e7q$7p1ux)*txyxlhe=7q9j_xxzsvbh'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '9$hw9t35j672ke%b*)=e7q$7p1ux)*txyxlhe=7q9j_xxzsvbh')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['c2eb4501e2d7.ngrok.io', '92c479120ec7.ngrok.io','2b145d158e0e.ngrok.io','yoonhero.local', 'localhost', 'good-comment.herokuapp.com', '127.0.0.1', 'comment-testing.herokuapp.com']
 
 
 # Application definition
@@ -42,6 +44,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    #'whitenoise.middleware.WhiteNoiseMiddleleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -55,7 +58,10 @@ ROOT_URLCONF = 'crm1.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [
+            TEMPATE_DIR,
+            OTHER_DIR
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,7 +74,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'crm1.wsgi.application'
+#WSGI_APPLICATION = 'crm1.wsgi.application'
 
 
 # Database
@@ -79,9 +85,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-}
+} 
 
-
+#db_from_env = dj_database_url.config(conn_max_age=500)
+#DATABASES['default'].update(db_from_env)
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -117,5 +124,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
+#STATIC_ROOT = '/static/'
 
 STATIC_URL = '/static/'
