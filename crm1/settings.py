@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '9$hw9t35j672ke%b*)=e7q$7p1ux)*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['c2eb4501e2d7.ngrok.io', '92c479120ec7.ngrok.io','2b145d158e0e.ngrok.io','yoonhero.local', 'localhost', 'good-comment.herokuapp.com', '127.0.0.1', 'comment-testing.herokuapp.com']
+ALLOWED_HOSTS = [ 'e3bbdd205f92.ngrok.io', 'ff0d68cec631.ngrok.io', 'd41304890f63.ngrok.io','77cb5b2264f7.ngrok.io', '92c479120ec7.ngrok.io','2b145d158e0e.ngrok.io','yoonhero.local', 'localhost', 'good-comment.herokuapp.com', '127.0.0.1', 'comment-testing.herokuapp.com']
 
 
 # Application definition

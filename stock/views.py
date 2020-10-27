@@ -14,6 +14,7 @@ def sitemap(request):
 def home(request):
     num = Comment.objects.all().count()
     h = Comment.objects.all().order_by('-id')[:num]
+    
     return render(request, 'home.html', {'num':num, 'posts':h})
 def confirm(request):
     if request.POST['num1'] == "":
