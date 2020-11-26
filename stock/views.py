@@ -90,3 +90,6 @@ def confirm(request):
     num = Comment.objects.all().count()
     h = Comment.objects.all().order_by('-id')[:num]
     return render(request, 'home.html', {'result':res, 'num':num, 'comment':val1, 'posts': h, 'condition':con})
+    
+    def whatsup():
+        print("what's up")
